@@ -1,41 +1,51 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './HomePage.css';
+import logo from '../assets/logo.png'; // Adjust the path if necessary
+import "../App.css";
 
+// HomePage component allows users to select a trivia category and navigate to the quiz
 function HomePage() {
-    const navigate = useNavigate();
-    const [selectedGenre, setSelectedGenre] = useState(null);
+  const navigate = useNavigate();
+  const [selectedGenre, setSelectedGenre] = useState(null);
 
-    const handleGenreSelect = (categoryId) => {
-        setSelectedGenre(categoryId);
-    };
+  // Set the selected category when a button is clicked
+  const handleGenreSelect = (categoryId) => {
+    setSelectedGenre(categoryId);
+  };
 
-    const handleContinue = () => {
-        if (selectedGenre) {
-            navigate('/quiz', { state: { category: selectedGenre } });
-        }
-    };
+  // Navigate to the Quiz page, passing the selected category as state
+  const handleContinue = () => {
+    if (selectedGenre) {
+      navigate('/quiz', { state: { category: selectedGenre } });
+    }
+  };
 
-    return (
-        <div className="homepage-container">
-            <h1 className="homepage-header">Welcome to the Trivia App!</h1>
-            <h2 className="homepage-subtitle">Select a Category:</h2>
+  return (
+    <div className="homepage-container">
+      {/* Logo Header */}
+      <div className="header-logo">
+        <img src={logo} alt="App Logo" />
+      </div>
 
-            <button className="category-button">General Knowledge</button>
-            <button className="category-button">Film</button>
-            <button className="category-button">Music</button>
-            <button className="category-button">Television</button>
-            <button className="category-button">Video Games</button>
+      {/* Page Title and Subtitle */}
+      <h1 className="homepage-header">Welcome to the Trivia App!</h1>
+      <h2 className="homepage-subtitle">Select a Category:</h2>
 
-            <button
-                onClick={handleContinue}
-                className="continue-button"
-                disabled={selectedGenre === null}
-            >
-                Continue
-            </button>
-        </div>
-    );
+      {/* Category Selection Buttons */}
+      <div className="category-selection-container">
+        <button onClick={() => handleGenreSelect(9)} className="category-button">General Knowledge</button>
+        <button onClick={() => handleGenreSelect(11)} className="category-button">Film</button>
+        <button onClick={() => handleGenreSelect(12)} className="category-button">Music</button>
+        <button onClick={() => handleGenreSelect(14)} className="category-button">Television</button>
+        <button onClick={() => handleGenreSelect(15)} className="category-button">Video Games</button>
+      </div>
+
+      {/* Continue Button */}
+      <button onClick={handleContinue} className="continue-button" disabled={selectedGenre === null}>
+        Continue
+      </button>
+    </div>
+  );
 }
 
 export default HomePage;

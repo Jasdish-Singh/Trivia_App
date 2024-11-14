@@ -1,24 +1,28 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+// The Results component displays the final score and feedback message
 function Results() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Get score and total from location.state
+  // Retrieve score and total number of questions from the Quiz page
   const { score, total } = location.state || {};
 
-  // If score or total is missing, redirect to home
+  // Redirect to home if score or total is missing
   if (score === undefined || total === undefined) {
     navigate('/');
     return null;
   }
 
+  const feedbackMessage = score / total > 0.7 ? "Great job!" : "Better luck next time!";
+
   return (
-    <div>
+    <div className="results-container">
       <h1>Quiz Results</h1>
       <p>Your Score: {score} out of {total}</p>
-      <button onClick={() => navigate("/")}>Return to Home</button>
+      <p>{feedbackMessage}</p>
+      <button onClick={() => navigate("/")} className="return-button">Return to Home</button>
     </div>
   );
 }
