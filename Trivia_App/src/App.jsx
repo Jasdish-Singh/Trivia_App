@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
- 
-
+// App.jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './Components/HomePage';
+import Quiz from './Components/Quiz';      
+import Result from './Components/Result'; 
 
 function App() {
-    return (
-        <BrowserRouter>
-          <Routes>
-          </Routes>
-        </BrowserRouter>
-      );
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />           
+      <Route path="/quiz" element={<Quiz />} />        
+      <Route path="/results" element={<Result />} />  
+    </Routes>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,68 @@
+/* General container styling for the HomePage */
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header and subtitle styling */
+  .homepage-header {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .homepage-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Shared button styling */
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+  
+  /* Category button specific styling */
+  .category-button {
+    background-color: #4CAF50;
+    
+  }
+  
+  .category-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Continue button specific styling */
+  .continue-button {
+    background-color: #2196F3;
+    margin-top: 20px;
+    opacity: 0.6;
+  }
+  
+  .continue-button:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* Enable Continue button when not disabled */
+  .continue-button:enabled {
+    opacity: 1;
+  }
+  .category-button {
+    display: inline-block;
+    margin-right: 10px; /* Optional spacing between buttons */
+  }
+  .button-container {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+  }
+  
